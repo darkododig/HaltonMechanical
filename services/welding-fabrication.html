@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structural Welding & Fabrication | CWB Certified | Halton Mechanical GTA</title>
+<meta name="description" content="CWB certified structural welding and fabrication across the GTA and Southern Ontario. Licensed millwrights who weld. MOL-ready documentation on every project. Same-day emergency response from Halton Region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────
+   DESIGN TOKENS — exact match to homepage
+───────────────────────────────────────────────────────── */
+:root {
+  --hm-blue:         #0056B3;
+  --hm-blue-light:   #1A6FCC;
+  --hm-blue-glow:    rgba(0, 86, 179, 0.15);
+  --hm-blue-subtle:  rgba(0, 86, 179, 0.06);
+  --hm-red:          #E63946;
+  --hm-red-light:    #EF4F5B;
+  --carbon:          #121212;
+  --steel:           #2C2C2E;
+  --steel-light:     #3A3A3C;
+  --border-subtle:   rgba(255,255,255,0.06);
+  --text-primary:    #F8F9FA;
+  --text-secondary:  #9CA3AF;
+  --text-muted:      #6B7280;
+  --font-heading:    'Montserrat', sans-serif;
+  --font-body:       'Inter', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-body); background: var(--carbon); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; font-weight: 400; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--hm-blue); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.section-label::before { content: ''; width: 32px; height: 1px; background: var(--hm-blue); }
+
+/* ─────────────────────────────────────────────────────────
+   NAV — exact homepage match
+───────────────────────────────────────────────────────── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 24px; transition: background 0.4s, backdrop-filter 0.4s; }
+.nav.scrolled { background: rgba(18,18,18,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 67px; width: auto; display: block; }
+.nav-logo-text { font-family: var(--font-heading); font-size: 18px; font-weight: 900; color: var(--text-primary); letter-spacing: 1px; text-transform: uppercase; line-height: 1.1; }
+.nav-logo-text span { color: var(--hm-blue); }
+.nav-logo-sub { font-family: var(--font-body); font-size: 10px; font-weight: 400; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.3px; transition: color 0.25s; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-phone { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-primary) !important; letter-spacing: 0.5px; }
+.nav-cta { background: var(--hm-red); color: var(--text-primary) !important; padding: 10px 24px; border-radius: 4px; font-weight: 600 !important; transition: background 0.25s, transform 0.2s, box-shadow 0.25s !important; }
+.nav-cta:hover { background: var(--hm-red-light); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(230,57,70,0.3); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text-primary); margin: 6px 0; transition: transform 0.3s, opacity 0.3s; }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+.nav-dropdown > a::after { content: ''; width: 4px; height: 4px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-top: -2px; transition: transform 0.25s; }
+.nav-dropdown:hover > a::after { transform: rotate(-135deg); }
+.dropdown-menu { position: absolute; top: 100%; left: -16px; min-width: 280px; background: rgba(28,28,30,0.97); backdrop-filter: blur(20px); border: 1px solid rgba(0,86,179,0.2); border-radius: 6px; padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity 0.25s, visibility 0.25s, transform 0.25s; box-shadow: 0 16px 48px rgba(0,0,0,0.4); margin-top: 12px; list-style: none; z-index: 100; }
+.nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 12px; }
+.dropdown-menu li a { display: block; padding: 11px 20px; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.2px; transition: color 0.2s, background 0.2s, padding-left 0.2s; border-left: 2px solid transparent; }
+.dropdown-menu li a:hover,
+.dropdown-menu li a.active { color: var(--text-primary); background: rgba(0,86,179,0.08); border-left-color: var(--hm-blue); padding-left: 24px; }
+
+/* ─────────────────────────────────────────────────────────
+   PAGE HERO
+───────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding-top: 80px;
+  overflow: hidden;
+  background: var(--carbon);
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat;
+  filter: saturate(0.4) brightness(0.55) contrast(1.1);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8,14,28,0.88) 0%, rgba(8,14,28,0.65) 35%, rgba(8,14,28,0.2) 60%, rgba(8,14,28,0.15) 100%),
+    linear-gradient(180deg, rgba(8,14,28,0.35) 0%, rgba(8,14,28,0.1) 40%, rgba(8,14,28,0.7) 100%);
+}
+.hero-blue-wash { position: absolute; inset: 0; background: rgba(5,20,55,0.4); mix-blend-mode: color; }
+.hero-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 55% 40%, rgba(0,86,179,0.12), transparent 70%); pointer-events: none; }
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(90deg, rgba(248,249,250,0.018) 1px, transparent 1px), linear-gradient(0deg, rgba(248,249,250,0.018) 1px, transparent 1px);
+  background-size: 100px 100px; pointer-events: none;
+}
+.hero-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 220px; background: linear-gradient(180deg, transparent, var(--carbon)); pointer-events: none; }
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 12px;
+  color: var(--text-muted); margin-bottom: 36px;
+}
+.breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--hm-blue); }
+.breadcrumb-sep { opacity: 0.4; }
+.breadcrumb-current { color: var(--text-secondary); }
+
+.hero-content { position: relative; z-index: 2; padding: 80px 0 100px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; background: var(--hm-blue-subtle); border: 1px solid rgba(0,86,179,0.2); padding: 8px 20px; border-radius: 2px; font-family: var(--font-heading); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--hm-blue-light); margin-bottom: 40px; }
+.hero-badge .pulse { width: 6px; height: 6px; background: var(--hm-blue); border-radius: 50%; animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,86,179,0.4); } 50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(0,86,179,0); } }
+
+.hero h1 { font-family: var(--font-heading); font-size: clamp(36px, 5.2vw, 64px); font-weight: 900; line-height: 1.05; color: var(--text-primary); letter-spacing: -1px; text-transform: uppercase; margin-bottom: 28px; max-width: 820px; }
+.hero h1 .blue { color: var(--hm-blue); }
+.hero-sub { font-size: 18px; font-weight: 400; color: var(--text-secondary); max-width: 560px; line-height: 1.75; margin-bottom: 48px; }
+
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--hm-red); color: var(--text-primary); font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 18px 36px; border-radius: 4px; text-decoration: none; transition: background 0.25s, transform 0.15s, box-shadow 0.25s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--hm-red-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(230,57,70,0.25); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text-secondary); font-family: var(--font-heading); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 18px 36px; border-radius: 4px; text-decoration: none; border: 1px solid var(--steel-light); transition: border-color 0.25s, color 0.25s; }
+.btn-secondary:hover { border-color: var(--hm-blue); color: var(--hm-blue); }
+
+/* Hero stats bar */
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 80px; border: 1px solid rgba(0,86,179,0.35); border-radius: 6px; overflow: hidden; background: rgba(44,44,46,0.55); backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 40px rgba(0,0,0,0.3); }
+.hero-stat { padding: 32px 28px; position: relative; }
+.hero-stat:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 24%; bottom: 24%; width: 1px; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.08), transparent); }
+.hero-stat .value { font-family: var(--font-heading); font-size: 26px; font-weight: 900; color: var(--text-primary); letter-spacing: -0.5px; text-transform: uppercase; }
+.hero-stat .value .blue { color: var(--hm-blue); }
+.hero-stat .desc { font-size: 13px; font-weight: 400; color: var(--text-secondary); margin-top: 6px; letter-spacing: 0.2px; }
+
+/* ─────────────────────────────────────────────────────────
+   TRUST / CREDENTIAL BAR
+───────────────────────────────────────────────────────── */
+.trust-bar { padding: 44px 0; background: rgba(44,44,46,0.45); backdrop-filter: blur(12px); border-top: 1px solid rgba(0,86,179,0.2); border-bottom: 1px solid rgba(0,86,179,0.2); }
+.trust-items { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 12px; font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text-secondary); position: relative; padding: 0 8px; }
+.trust-item:not(:last-child)::after { content: ''; position: absolute; right: -20px; top: 15%; bottom: 15%; width: 1px; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.06), transparent); }
+.trust-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,86,179,0.25); border-radius: 8px; background: rgba(0,86,179,0.06); flex-shrink: 0; }
+.trust-icon svg { width: 16px; height: 16px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ─────────────────────────────────────────────────────────
+   SECTION SHARED HEADING
+───────────────────────────────────────────────────────── */
+.section-heading h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.2vw, 42px); font-weight: 800; color: var(--text-primary); line-height: 1.12; letter-spacing: -0.5px; text-transform: uppercase; margin-bottom: 16px; }
+.section-heading p { font-size: 16px; font-weight: 400; color: var(--text-secondary); max-width: 560px; line-height: 1.75; }
+
+/* ─────────────────────────────────────────────────────────
+   DIFFERENTIATOR BAND — "Licensed Millwrights, Not Just Welders"
+───────────────────────────────────────────────────────── */
+.diff-band { padding: 80px 0; background: var(--carbon); border-bottom: 1px solid var(--border-subtle); }
+.diff-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.diff-left .overline { font-family: var(--font-heading); font-size: 11px; font-weight: 700; letter-spacing: 4px; color: var(--hm-blue); text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.diff-left .overline::before { content: ''; width: 32px; height: 1px; background: var(--hm-blue); }
+.diff-left h2 { font-family: var(--font-heading); font-size: clamp(28px, 3vw, 42px); font-weight: 900; color: var(--text-primary); line-height: 1.1; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 24px; }
+.diff-left h2 em { color: var(--hm-blue); font-style: normal; }
+.diff-left p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; }
+.diff-left .quote-line { border-left: 3px solid var(--hm-blue); padding-left: 20px; font-size: 15px; font-style: italic; color: var(--text-secondary); line-height: 1.7; margin: 28px 0; }
+.diff-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-subtle); border-radius: 6px; overflow: hidden; }
+.diff-card { background: var(--steel); padding: 32px 28px; transition: background 0.3s; }
+.diff-card:hover { background: var(--steel-light); }
+.diff-card-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--hm-blue-subtle); border-radius: 4px; margin-bottom: 16px; }
+.diff-card-icon svg { width: 20px; height: 20px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.diff-card h4 { font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.diff-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ─────────────────────────────────────────────────────────
+   CAPABILITIES / SCOPE SECTION
+───────────────────────────────────────────────────────── */
+.scope-section { padding: 120px 0; }
+.scope-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-subtle); margin-top: 64px; border-radius: 6px; overflow: hidden; }
+.scope-card { position: relative; background: var(--steel); padding: 44px 36px; transition: background 0.3s; overflow: hidden; }
+.scope-card:hover { background: var(--steel-light); }
+.scope-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--hm-blue); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.scope-card:hover::before { transform: scaleX(1); }
+.scope-num { font-family: var(--font-heading); font-size: 72px; font-weight: 900; color: rgba(248,249,250,0.025); position: absolute; top: 8px; right: 16px; line-height: 1; pointer-events: none; }
+.scope-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+.scope-icon svg { width: 26px; height: 26px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.scope-card h3 { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 14px; line-height: 1.2; }
+.scope-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
+.scope-list { list-style: none; }
+.scope-list li { font-size: 14px; color: var(--text-primary); padding: 6px 0 6px 20px; position: relative; opacity: 0.85; }
+.scope-list li::before { content: ''; position: absolute; left: 0; top: 13px; width: 8px; height: 1px; background: var(--hm-blue); }
+
+/* ─────────────────────────────────────────────────────────
+   DOCUMENTATION / COMPLIANCE SECTION
+───────────────────────────────────────────────────────── */
+.docs-section { padding: 120px 0; background: var(--steel); position: relative; overflow: hidden; }
+.docs-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0,86,179,0.05), transparent); pointer-events: none; }
+.docs-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.docs-left { position: relative; }
+.docs-photo-frame { position: relative; border-radius: 6px; overflow: hidden; }
+.docs-photo { width: 100%; height: 420px; object-fit: cover; filter: saturate(0.4) brightness(0.55) contrast(1.1); display: block; }
+.docs-photo-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(8,14,28,0.7) 100%); }
+.docs-photo-badge { position: absolute; bottom: 24px; left: 24px; right: 24px; background: rgba(18,18,18,0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0,86,179,0.25); border-radius: 4px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+.docs-photo-badge-icon { width: 40px; height: 40px; background: var(--hm-blue-subtle); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.docs-photo-badge-icon svg { width: 20px; height: 20px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.docs-photo-badge strong { display: block; font-family: var(--font-heading); font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.docs-photo-badge span { font-size: 13px; color: var(--text-secondary); }
+
+.docs-right h2 { font-family: var(--font-heading); font-size: clamp(26px, 2.8vw, 38px); font-weight: 800; color: var(--text-primary); text-transform: uppercase; line-height: 1.12; letter-spacing: -0.5px; margin-bottom: 20px; }
+.docs-right > p { font-size: 16px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 40px; }
+.doc-steps { display: flex; flex-direction: column; gap: 0; }
+.doc-step { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-subtle); }
+.doc-step:last-child { border-bottom: none; }
+.doc-step-num { font-family: var(--font-heading); font-size: 12px; font-weight: 800; color: var(--hm-blue); min-width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,86,179,0.3); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+.doc-step h4 { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.doc-step p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ─────────────────────────────────────────────────────────
+   PROOF / CASE STUDY SECTION
+───────────────────────────────────────────────────────── */
+.proof-section { padding: 120px 0; }
+.proof-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 64px; }
+.proof-card { background: var(--steel); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 36px 32px; transition: border-color 0.3s, transform 0.25s; }
+.proof-card:hover { border-color: rgba(0,86,179,0.3); transform: translateY(-3px); }
+.proof-card-tag { display: inline-block; font-family: var(--font-heading); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--hm-blue); border: 1px solid rgba(0,86,179,0.3); padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; }
+.proof-card h4 { font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: var(--text-primary); text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 14px; line-height: 1.2; }
+.proof-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
+.proof-metrics { display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+.proof-metric { display: flex; align-items: baseline; gap: 10px; }
+.proof-metric .metric-val { font-family: var(--font-heading); font-size: 22px; font-weight: 900; color: var(--text-primary); }
+.proof-metric .metric-val .blue { color: var(--hm-blue); }
+.proof-metric .metric-label { font-size: 13px; color: var(--text-secondary); }
+
+/* ─────────────────────────────────────────────────────────
+   COMPLIANCE / WHO THIS IS FOR SECTION
+───────────────────────────────────────────────────────── */
+.buyer-section { padding: 120px 0; background: var(--steel); }
+.buyer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.buyer-personas { display: flex; flex-direction: column; gap: 16px; margin-top: 48px; }
+.buyer-persona { background: var(--carbon); border: 1px solid var(--border-subtle); border-radius: 6px; padding: 28px; transition: border-color 0.3s; }
+.buyer-persona:hover { border-color: rgba(0,86,179,0.25); }
+.buyer-persona-role { font-family: var(--font-heading); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--hm-blue); margin-bottom: 10px; }
+.buyer-persona h4 { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 10px; }
+.buyer-persona p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+.buyer-right .why-points { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+.why-point { display: flex; gap: 20px; align-items: flex-start; }
+.why-point-num { font-family: var(--font-heading); font-size: 12px; font-weight: 800; color: var(--hm-blue); min-width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,86,179,0.3); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+.why-point h4 { font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; margin-bottom: 8px; }
+.why-point p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ─────────────────────────────────────────────────────────
+   CERTIFICATIONS SECTION
+───────────────────────────────────────────────────────── */
+.certs-section { padding: 100px 0; }
+.certs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border-subtle); border-radius: 6px; overflow: hidden; margin-top: 56px; }
+.cert-card { background: var(--steel); padding: 36px 28px; text-align: center; transition: background 0.3s; }
+.cert-card:hover { background: var(--steel-light); }
+.cert-card-badge { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--hm-blue-subtle); border-radius: 8px; margin: 0 auto 20px; }
+.cert-card-badge svg { width: 24px; height: 24px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cert-card h4 { font-family: var(--font-heading); font-size: 12px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; line-height: 1.3; }
+.cert-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+/* ISNetworld special callout */
+.isnetworld-banner { margin-top: 24px; background: linear-gradient(135deg, rgba(0,86,179,0.12), rgba(0,86,179,0.04)); border: 1px solid rgba(0,86,179,0.25); border-radius: 6px; padding: 28px 36px; display: flex; align-items: center; gap: 24px; }
+.isnetworld-banner-icon { width: 48px; height: 48px; background: var(--hm-blue-subtle); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.isnetworld-banner-icon svg { width: 24px; height: 24px; stroke: var(--hm-blue); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.isnetworld-banner strong { display: block; font-family: var(--font-heading); font-size: 14px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.isnetworld-banner p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ─────────────────────────────────────────────────────────
+   CTA SECTION — exact homepage match
+───────────────────────────────────────────────────────── */
+.cta-section { padding: 140px 0; position: relative; overflow: hidden; }
+.cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80') center center / cover no-repeat; filter: saturate(0.4) brightness(0.55) contrast(1.1); }
+.cta-blue-wash { position: absolute; inset: 0; background: rgba(5,20,55,0.4); mix-blend-mode: color; }
+.cta-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,14,28,0.8) 0%, rgba(8,14,28,0.55) 30%, rgba(8,14,28,0.2) 55%, rgba(8,14,28,0.15) 100%), linear-gradient(180deg, rgba(8,14,28,0.35) 0%, rgba(8,14,28,0.1) 40%, rgba(8,14,28,0.65) 100%); }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,86,179,0.12), transparent 70%); pointer-events: none; z-index: 1; }
+.cta-inner { position: relative; z-index: 2; text-align: center; max-width: 660px; margin: 0 auto; }
+.cta-inner h2 { font-family: var(--font-heading); font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; color: var(--text-primary); line-height: 1.12; text-transform: uppercase; margin-bottom: 16px; }
+.cta-inner > p { font-size: 16px; font-weight: 400; color: var(--text-secondary); margin-bottom: 44px; line-height: 1.7; }
+.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-phone-block { margin-top: 40px; font-family: var(--font-heading); }
+.cta-phone-block .divider { font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.cta-phone-block a { font-size: 32px; font-weight: 900; color: var(--text-primary); text-decoration: none; transition: color 0.25s; }
+.cta-phone-block a:hover { color: var(--hm-blue); }
+
+/* ─────────────────────────────────────────────────────────
+   FOOTER — exact homepage match
+───────────────────────────────────────────────────────── */
+.footer { padding: 72px 0 36px; border-top: 1px solid var(--border-subtle); background: var(--carbon); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.footer-brand p { font-size: 14px; font-weight: 300; color: var(--text-muted); margin-top: 16px; line-height: 1.7; max-width: 300px; }
+.footer-brand-text { font-family: var(--font-heading); font-size: 16px; font-weight: 900; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; }
+.footer-brand-text span { color: var(--hm-blue); }
+.footer-col h5 { font-family: var(--font-heading); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 24px; }
+.footer-col a { display: block; font-size: 14px; font-weight: 400; color: var(--text-muted); text-decoration: none; padding: 5px 0; transition: color 0.25s; }
+.footer-col a:hover { color: var(--hm-blue); }
+.footer-bottom { border-top: 1px solid var(--border-subtle); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-bottom a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+.footer-bottom a:hover { color: var(--hm-blue); }
+
+/* ─────────────────────────────────────────────────────────
+   ANIMATIONS — same as homepage
+───────────────────────────────────────────────────────── */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ─────────────────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-stat:nth-child(2)::after { display: none; }
+  .diff-inner, .docs-inner, .buyer-inner { grid-template-columns: 1fr; gap: 48px; }
+  .diff-right { grid-template-columns: 1fr 1fr; }
+  .scope-grid { grid-template-columns: 1fr 1fr; }
+  .proof-cards { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: rgba(18,18,18,0.98); backdrop-filter: blur(20px); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border-subtle); }
+  .scope-grid { grid-template-columns: 1fr; }
+  .diff-right { grid-template-columns: 1fr; }
+  .proof-cards { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .trust-items { gap: 20px; }
+  .isnetworld-banner { flex-direction: column; text-align: center; }
+  .hero-stat::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="https://halton-mechanical.vercel.app/logo.png" alt="Halton Mechanical">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-dropdown">
+        <a href="/services">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="/services/welding-fabrication" class="active">Industrial Welding &amp; Fabrication</a></li>
+          <li><a href="/services/millwrighting">Millwrighting &amp; Mechanical Services</a></li>
+          <li><a href="/services/racking-repair">Racking Repair &amp; Warehouse Solutions</a></li>
+          <li><a href="/services/emergency">Emergency &amp; Shutdown Services</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="/industries">Industries</a>
+        <ul class="dropdown-menu">
+          <li><a href="/industries/distribution">Distribution &amp; Warehousing</a></li>
+          <li><a href="/industries/plastics">Plastics Manufacturing</a></li>
+          <li><a href="/industries/steel">Steel Manufacturing</a></li>
+          <li><a href="/industries/packaging">Packaging Manufacturing</a></li>
+          <li><a href="/industries/food-processing">Food &amp; Processing</a></li>
+        </ul>
+      </li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="tel:4168761061" class="nav-phone">(416) 876-1061</a></li>
+      <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-blue-wash"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-fade"></div>
+  <div class="container">
+    <div class="hero-content">
+      <nav class="breadcrumb fade-up">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="/services">Services</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">Structural Welding &amp; Fabrication</span>
+      </nav>
+      <div class="hero-badge fade-up"><span class="pulse"></span> CWB Certified · CSA W47.1 · GTA &amp; Southern Ontario</div>
+      <h1 class="fade-up">Structural Welding<br>&amp; Fabrication<span class="blue">.</span></h1>
+      <p class="hero-sub fade-up">CWB-certified structural welding backed by licensed millwright knowledge. Every weld documented. Every project inspectable. Every time.</p>
+      <div class="hero-actions fade-up">
+        <a href="/contact" class="btn-primary">
+          Request a Quote
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="tel:4168761061" class="btn-secondary">
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M6 3H4a1 1 0 00-1 1c0 5.523 4.477 10 10 10a1 1 0 001-1v-2l-3-1.5-1.5 1.5a7 7 0 01-3.5-3.5L7.5 6 6 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          (416) 876-1061
+        </a>
+      </div>
+      <div class="hero-stats fade-up">
+        <div class="hero-stat">
+          <div class="value">CWB</div>
+          <div class="desc">Certified to CSA W47.1</div>
+        </div>
+        <div class="hero-stat">
+          <div class="value">100<span class="blue">%</span></div>
+          <div class="desc">MOL Audit-Ready Documentation</div>
+        </div>
+        <div class="hero-stat">
+          <div class="value">Same<span class="blue">-</span>Day</div>
+          <div class="desc">Emergency Response, GTA</div>
+        </div>
+        <div class="hero-stat">
+          <div class="value">0</div>
+          <div class="desc">Production Shutdowns to Date</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ────────────────────────────────────────── -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        CWB Certified — CSA W47.1
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        Red Seal Licensed Millwrights
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+        ISNetworld Member Contractor
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        WSIB Covered — Every Job
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        Same-Day Emergency Response
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DIFFERENTIATOR ───────────────────────────────────── -->
+<section class="diff-band">
+  <div class="container">
+    <div class="diff-inner">
+      <div class="diff-left fade-up">
+        <div class="overline">The Halton Mechanical Difference</div>
+        <h2>Licensed Millwrights.<br><em>Not Just Welders.</em></h2>
+        <p>Most welding contractors can join steel. Halton Mechanical carries Red Seal Licensed Millwrights who weld. That distinction changes everything about the quality of the work and the documentation behind it.</p>
+        <p>When a millwright-trained team handles your structural welding, they understand load paths, failure modes, and engineering intent, not just how to run a bead. The result is welding that satisfies both your structural engineer and the Ministry of Labour.</p>
+        <div class="quote-line">
+          "We're not a welding shop. We're licensed millwrights. The difference is we understand why structures fail, not just how to join them."
+        </div>
+        <a href="/contact" class="btn-primary">
+          Talk to Our Team
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="diff-right fade-up">
+        <div class="diff-card">
+          <div class="diff-card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+          <h4>Structural Understanding</h4>
+          <p>We read and execute from engineering drawings. We know what the spec is asking for and why.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h4>Full MOL Documentation</h4>
+          <p>Written WPS, mill certifications, post-weld inspection reports, as-built drawings — every project.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h4>ISNetworld Verified</h4>
+          <p>Third-party vetted through ISN for safety, insurance, and regulatory compliance — required by most major facilities.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12M12 12L7 7M12 12l5-5"/><rect x="2" y="18" width="20" height="4" rx="1"/></svg></div>
+          <h4>Fixed-Price Scope</h4>
+          <p>Detailed written scope with material specs and weld procedures. The number on the quote is the number on the invoice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCOPE / CAPABILITIES ─────────────────────────────── -->
+<section class="scope-section">
+  <div class="container">
+    <div class="section-heading fade-up">
+      <div class="section-label">What We Do</div>
+      <h2>Structural Welding &amp; Fabrication<br>Capabilities</h2>
+      <p>From engineered mezzanines to emergency beam repairs, our CWB-certified team handles the full scope of industrial structural welding for manufacturing and warehousing facilities across the GTA.</p>
+    </div>
+    <div class="scope-grid">
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">01</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M5 20V8l5-4v16"/><path d="M10 20V4l9 4v12"/></svg></div>
+        <h3>Structural Steel Welding</h3>
+        <p>CWB-certified welding to CSA W47.1 for structural connections, beam repairs, column reinforcements, and load-bearing steel. Full written WPS on every job.</p>
+        <ul class="scope-list">
+          <li>Beam splices, end plates &amp; moment connections</li>
+          <li>Column base plates &amp; anchor work</li>
+          <li>Crane runway beam repair &amp; modification</li>
+          <li>Load-bearing column additions</li>
+          <li>Structural steel repair &amp; reinforcement</li>
+          <li>Engineer-ready documentation package</li>
+        </ul>
+      </div>
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">02</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v4M10 14h4"/></svg></div>
+        <h3>Mezzanines &amp; Elevated Platforms</h3>
+        <p>Custom-engineered steel mezzanines designed around your facility's footprint, load requirements, and production schedule. Installed with zero disruption to operations below.</p>
+        <ul class="scope-list">
+          <li>Structural steel mezzanine design &amp; build</li>
+          <li>Platforms, walkways &amp; catwalks</li>
+          <li>Guard rails, staircases &amp; access ladders</li>
+          <li>Equipment support platforms</li>
+          <li>Work cell and production platforms</li>
+          <li>Seismic and load-rated designs available</li>
+        </ul>
+      </div>
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">03</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Mobile &amp; Field Welding</h3>
+        <p>On-site structural welding anywhere in the GTA and Southern Ontario. Fully equipped mobile crews for repairs that can't wait and projects that can't move.</p>
+        <ul class="scope-list">
+          <li>On-site structural repairs</li>
+          <li>Emergency crane beam &amp; rail welding</li>
+          <li>Dock leveller frames &amp; loading dock steel</li>
+          <li>Building structural repairs</li>
+          <li>Field fit-up and assembly</li>
+          <li>After-hours and weekend availability</li>
+        </ul>
+      </div>
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">04</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3>Custom Fabrication</h3>
+        <p>Custom steel components built to spec from your drawings or ours. From one-off machine frames to production-run bracket work, fabricated to tight tolerance in our Halton shop.</p>
+        <ul class="scope-list">
+          <li>Machine frames &amp; base skids</li>
+          <li>Equipment anchor frames &amp; plinths</li>
+          <li>Custom steel enclosures &amp; guards</li>
+          <li>Conveyor support structures</li>
+          <li>Ductwork &amp; structural brackets</li>
+          <li>Stainless steel &amp; aluminum fabrication</li>
+        </ul>
+      </div>
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">05</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Machine Guarding &amp; Safety Steel</h3>
+        <p>Industrial-grade machine guarding, perimeter fencing, and safety barriers fabricated and installed to meet OHSA and facility safety standards. Built to stay in place, not rattle loose.</p>
+        <ul class="scope-list">
+          <li>Machine perimeter guarding</li>
+          <li>Bollards &amp; impact protection</li>
+          <li>Safety barriers &amp; fencing</li>
+          <li>Handrail &amp; guarding systems</li>
+          <li>Forklift impact protection columns</li>
+          <li>Compliant to OHSA standards</li>
+        </ul>
+      </div>
+
+      <div class="scope-card fade-up">
+        <div class="scope-num">06</div>
+        <div class="scope-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Emergency &amp; Shutdown Welding</h3>
+        <p>Production breakdown or scheduled shutdown, our crews mobilize fast. We scope the repair, produce the WPS on-site, execute the weld, and deliver a complete documentation package before we leave.</p>
+        <ul class="scope-list">
+          <li>Same-day emergency response, GTA</li>
+          <li>Shutdown window planning &amp; coordination</li>
+          <li>Weld assessment to sign-off in 72 hours</li>
+          <li>Overnight and weekend crews available</li>
+          <li>Temporary structural support &amp; repair</li>
+          <li>Post-repair inspection reports on-site</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DOCUMENTATION SECTION ────────────────────────────── -->
+<section class="docs-section">
+  <div class="container">
+    <div class="docs-inner">
+      <div class="docs-left fade-up">
+        <div class="docs-photo-frame">
+          <img class="docs-photo"
+               src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80"
+               alt="Industrial facility structural steel work"
+               loading="lazy">
+          <div class="docs-photo-overlay"></div>
+          <div class="docs-photo-badge">
+            <div class="docs-photo-badge-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <strong>MOL Audit-Ready</strong>
+              <span>Full documentation package on every project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="docs-right fade-up">
+        <div class="section-label">Documentation &amp; Compliance</div>
+        <h2>When We Finish the Job,<br>You Get a Binder.</h2>
+        <p>Most welding contractors do the work and walk away. We deliver a complete documentation package on every project, formatted for Ministry of Labour review. If an inspector walks in the next day, you're covered.</p>
+        <div class="doc-steps">
+          <div class="doc-step">
+            <div class="doc-step-num">01</div>
+            <div>
+              <h4>Written Weld Procedure Specification (WPS)</h4>
+              <p>Every structural weld is performed to a written WPS — base material, filler, preheat, interpass temperature, and technique. No weld is run without a procedure behind it.</p>
+            </div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">02</div>
+            <div>
+              <h4>Material Mill Certifications</h4>
+              <p>Material traceability from the steel service centre through to the finished weld. Mill certs for every structural member are retained and included in your package.</p>
+            </div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">03</div>
+            <div>
+              <h4>Post-Weld Inspection Report</h4>
+              <p>Visual inspection and dimensional verification on every job. Where required, we coordinate third-party NDT (UT, MT, PT) and include reports in the deliverable package.</p>
+            </div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">04</div>
+            <div>
+              <h4>As-Built Drawings</h4>
+              <p>Marked-up drawings reflecting the final installed condition. Essential for future modifications, permit applications, and ongoing facility records.</p>
+            </div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">05</div>
+            <div>
+              <h4>WSIB Clearance Certificate</h4>
+              <p>Certificate of clearance issued with every project. Your facility's insurance obligations are protected throughout the work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF / CASE STUDIES ─────────────────────────────── -->
+<section class="proof-section">
+  <div class="container">
+    <div class="section-heading fade-up">
+      <div class="section-label">Proven Track Record</div>
+      <h2>Work That Speaks<br>for Itself.</h2>
+      <p>Three representative projects. Real numbers. The kind of results facility managers remember when they need a structural welding call the next time.</p>
+    </div>
+    <div class="proof-cards">
+      <div class="proof-card fade-up">
+        <div class="proof-card-tag">Distribution Centre</div>
+        <h4>Mississauga Distribution Centre Mezzanine</h4>
+        <p>A 4,000 sq. ft. structural steel mezzanine engineered for heavy-duty warehouse use. Installed in phases around active operations so the distribution floor never stopped running.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric">
+            <span class="metric-val">4,000 <span class="blue">sq.ft.</span></span>
+            <span class="metric-label">Mezzanine installed</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">125 <span class="blue">PSF</span></span>
+            <span class="metric-label">Live load rating</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">6 <span class="blue">days</span></span>
+            <span class="metric-label">Total install time</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Zero</span>
+            <span class="metric-label">Production downtime</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card fade-up">
+        <div class="proof-card-tag">Emergency Response</div>
+        <h4>Brampton Auto Parts — Crane Runway Beam Repair</h4>
+        <p>Overhead crane runway beam failure at a Tier 1 automotive supplier. From weld assessment to structural engineer sign-off with full MOL documentation — in 72 hours.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric">
+            <span class="metric-val">72 <span class="blue">hrs</span></span>
+            <span class="metric-label">Assessment to engineer sign-off</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Same <span class="blue">day</span></span>
+            <span class="metric-label">Initial crew mobilization</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Full</span>
+            <span class="metric-label">MOL documentation delivered</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Zero</span>
+            <span class="metric-label">MOL deficiencies issued</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card fade-up">
+        <div class="proof-card-tag">Complex Scope</div>
+        <h4>Milton Industrial — Production Line Reconfiguration</h4>
+        <p>Three-bay production line reconfiguration requiring new crane rail supports, load-bearing column additions, and equipment anchor frames. Structural and mechanical in one scope, one team.</p>
+        <div class="proof-metrics">
+          <div class="proof-metric">
+            <span class="metric-val">3 <span class="blue">bays</span></span>
+            <span class="metric-label">Full reconfiguration</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Single</span>
+            <span class="metric-label">Contractor for full scope</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">Crane</span>
+            <span class="metric-label">Rail + column + equipment anchors</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-val">On</span>
+            <span class="metric-label">Schedule, on budget</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO THIS IS FOR ──────────────────────────────────── -->
+<section class="buyer-section">
+  <div class="container">
+    <div class="buyer-inner">
+      <div class="fade-up">
+        <div class="section-label">Who We Work With</div>
+        <div class="section-heading"><h2>Built for the People Who Own the Risk.</h2></div>
+        <div class="buyer-personas">
+          <div class="buyer-persona">
+            <div class="buyer-persona-role">Facility &amp; Plant Manager</div>
+            <h4>Stop-Work Order Fear Ends Here</h4>
+            <p>Every structural weld comes with a complete MOL-ready package. If an inspector walks in tomorrow, you're covered. We've never had a client fail an MOL audit on our work.</p>
+          </div>
+          <div class="buyer-persona">
+            <div class="buyer-persona-role">VP / Director of Operations</div>
+            <h4>No Invoice Surprises</h4>
+            <p>Fixed-price scope with material specs and weld procedures written before work starts. The number on the quote is the number on the invoice.</p>
+          </div>
+          <div class="buyer-persona">
+            <div class="buyer-persona-role">General Contractor / Project Manager</div>
+            <h4>Certification You Can Document</h4>
+            <p>CWB-certified, ISNetworld-verified, direct-hire crews. Full credential transparency. The subcontractor your client's EHS team won't push back on.</p>
+          </div>
+          <div class="buyer-persona">
+            <div class="buyer-persona-role">EHS / Safety Manager</div>
+            <h4>Every Procedure Written. Every Weld Traceable.</h4>
+            <p>Written WPS, material mill certs, WSIB clearance, and post-weld inspection report. Delivered in a package formatted for your records and your auditors.</p>
+          </div>
+        </div>
+      </div>
+      <div class="buyer-right fade-up">
+        <div class="section-label">Why Choose Halton Mechanical</div>
+        <div class="section-heading"><h2>What Sets Us Apart from Every Other Structural Welder in the GTA.</h2></div>
+        <div class="why-points">
+          <div class="why-point">
+            <div class="why-point-num">1</div>
+            <div>
+              <h4>The Millwright Difference</h4>
+              <p>Our team understands structural load, failure mechanics, and engineering drawings, not just weld technique. This is the gap between a CWB sticker and real structural competence.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-num">2</div>
+            <div>
+              <h4>Direct Hire. No Unknown Subcontractors.</h4>
+              <p>The same certified millwright welders on every project. You know exactly who is on your floor, what they're certified in, and what they're responsible for.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-num">3</div>
+            <div>
+              <h4>Faster Than Any National Shop</h4>
+              <p>National fabrication shops run 2 to 4-week backlogs. We're based in Halton, and we can be on-site the same day when it matters.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-num">4</div>
+            <div>
+              <h4>Zero Production Shutdowns</h4>
+              <p>We scope work around your production calendar — nights, weekends, phased installation. We've never shut a plant down to do our job.</p>
+            </div>
+          </div>
+          <div class="why-point">
+            <div class="why-point-num">5</div>
+            <div>
+              <h4>Structural Steel + Full Mechanical. One Vendor.</h4>
+              <p>Because of our millwright background, one call covers the steel structure and the equipment that goes in it. No coordination between two contractors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ───────────────────────────────────── -->
+<section class="certs-section">
+  <div class="container">
+    <div class="section-heading fade-up">
+      <div class="section-label">Credentials &amp; Compliance</div>
+      <h2>Every Certification Your<br>Facility Needs to See.</h2>
+      <p>These are the only certifications we carry. No others are implied or referenced. What's below is what you get.</p>
+    </div>
+    <div class="certs-grid fade-up">
+      <div class="cert-card">
+        <div class="cert-card-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>CWB Certified</h4>
+        <p>CSA Standard W47.1 — Division 1 structural steel welding certification issued by the Canadian Welding Bureau.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-card-badge"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4>Red Seal Millwrights</h4>
+        <p>Interprovincial Red Seal Licensed Industrial Mechanic (Millwright). The highest trade qualification in Canada.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-card-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>ISNetworld Member</h4>
+        <p>Verified third-party contractor qualification covering safety programs, insurance, and regulatory compliance.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-card-badge"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h4>WSIB</h4>
+        <p>Full Workplace Safety &amp; Insurance Board coverage. Certificate of clearance provided with every project, every time.</p>
+      </div>
+      <div class="cert-card">
+        <div class="cert-card-badge"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></div>
+        <h4>IHSA Training</h4>
+        <p>Infrastructure Health and Safety Association certified. Current procedures and safety protocols across all trades on site.</p>
+      </div>
+    </div>
+    <div class="isnetworld-banner fade-up">
+      <div class="isnetworld-banner-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div>
+        <strong>ISNetworld Member Contractor — Why It Matters to Your Facility</strong>
+        <p>ISNetworld is the procurement and contractor qualification standard used by most major industrial facilities and GCs in Ontario. ISN membership means our safety program, insurance certificates, and compliance records are independently verified and always current. If your facility requires ISN-vetted subcontractors, we're already on the list. No delays, no exceptions, no red flags on your audit trail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-blue-wash"></div>
+  <div class="cta-overlay"></div>
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <div class="section-label" style="justify-content:center;">Get Started</div>
+      <h2>Tell Us About<br>Your Project.</h2>
+      <p>Whether it's a planned structural build, an emergency repair, or a compliance gap you need documented, we'll give you a straight answer and a fixed price. No obligation, no pressure.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn-primary">
+          Request a Free Quote
+          <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/services" class="btn-secondary">View All Services</a>
+      </div>
+      <div class="cta-phone-block">
+        <div class="divider">or call us directly</div>
+        <a href="tel:4168761061">(416) 876-1061</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://halton-mechanical.vercel.app/logo.png" alt="Halton Mechanical" style="height:50px; width:auto; display:block; margin-bottom:4px;">
+        <p>Industrial structural welding, fabrication, and millwright services across Halton, Peel, and the Greater Toronto Area. CWB certified. Available 24/7.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="/services/welding-fabrication">Welding &amp; Fabrication</a>
+        <a href="/services/millwrighting">Millwrighting &amp; Mechanical</a>
+        <a href="/services/racking-repair">Racking Repair</a>
+        <a href="/services/emergency">Emergency &amp; Shutdown</a>
+      </div>
+      <div class="footer-col">
+        <h5>Industries</h5>
+        <a href="/industries/manufacturing">Manufacturing</a>
+        <a href="/industries/distribution">Distribution &amp; Warehousing</a>
+        <a href="/industries/plastics">Plastics Manufacturing</a>
+        <a href="/industries/food-processing">Food &amp; Processing</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/about">About Us</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+        <a href="tel:4168761061">(416) 876-1061</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Halton Mechanical. All rights reserved.</p>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+  // Mobile nav toggle
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Mobile dropdown toggles
+  document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.parentElement.classList.toggle('dropdown-open');
+      }
+    });
+  });
+
+  // Fade-up scroll animations — staggered per row of 3
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 100}ms`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
